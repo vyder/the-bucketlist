@@ -8,7 +8,7 @@
 
 # Create default username:"vidur", password:"goosefraba"
 vidur = User.new(username:"vidur",email:"vidur.murali@gmail.com",password:"goosefraba",password_confirmation:"goosefraba")
-
+vidur.save!
 
 # Create some sample tasks
 ideas = ["Climb Mt. Everest",
