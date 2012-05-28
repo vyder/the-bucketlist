@@ -1,0 +1,146 @@
+// Place all the styles related to the list controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "config";
+
+#list {
+  padding: 20px;
+//  height:80%;
+//  overflow:scroll;
+}
+
+#list h1 {
+  font-size: 36pt;
+  font-weight: 500;
+  text-align: center;
+  padding: 0 0 10px 0;
+}
+
+#list input[type="text"] {
+  width: $list-width;
+  font-size: 24px;
+  font-family: inherit;
+  line-height: 1.4em;
+  border: 0;
+  outline: none;
+  padding: 6px;
+  border: 1px solid #999999;
+  
+  -moz-box-shadow: rgba(0, 0, 0, 0.2) 0 1px 2px 0 inset;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0 1px 2px 0 inset;
+  -o-box-shadow: rgba(0, 0, 0, 0.2) 0 1px 2px 0 inset;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 1px 2px 0 inset;
+}
+
+#list input::-webkit-input-placeholder {
+  font-style: italic;
+}
+
+#list .tasks {
+  margin: 10px 0;
+  list-style: none;
+}
+
+#list .task {
+  padding: 15px 20px 15px 0;
+  position: relative;
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+}
+
+#list .task.done span {
+  color: #777777;
+  text-decoration: line-through;
+}
+
+#list .task .destroy {
+  position: absolute;
+  right: 10px;
+  top: 16px;
+  display: none;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  img {
+    height:50%;
+    width:50%;
+    opacity:0.7;
+  }
+}
+
+#list .task:hover .destroy {
+  display: block;
+  img {
+    opacity:0.3;
+  }
+}
+
+#list .task .edit { display: none; }
+#list .task.editing .edit { display: block; }
+#list .task.editing .view { display: none; }
+
+#list footer {
+  display: block;
+  margin: 20px -20px -20px -20px;
+  width:100%;
+  overflow: hidden;
+  
+  color: #555555;
+  background: #f4fce8;
+  border-top: 1px solid #ededed;
+  padding: 0 20px;
+  line-height: 36px;
+  
+  -moz-border-radius: 0 0 5px 5px;
+  -o-border-radius: 0 0 5px 5px;
+  -webkit-border-radius: 0 0 5px 5px;
+  border-radius: 0 0 5px 5px;
+}
+
+#list #clear-tasks {
+  display: block;
+  float: right;
+  line-height: 20px;
+  text-decoration: none;
+  
+  background: rgba(0, 0, 0, 0.1);
+  color: #555555;
+  font-size: 11px;
+  margin-top: 8px;
+  padding: 0 10px 1px;
+  
+  -moz-border-radius: 12px;
+  -webkit-border-radius: 12px;
+  -o-border-radius: 12px;
+  border-radius: 12px;
+  
+  -moz-box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 0 0;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 0 0;
+  -o-box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 0 0;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 0 0; 
+  
+  cursor: pointer;
+}
+
+#list #clear-tasks:hover {
+  background: rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: rgba(0, 0, 0, 0.3) 0 -1px 0 0;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.3) 0 -1px 0 0;
+  -o-box-shadow: rgba(0, 0, 0, 0.3) 0 -1px 0 0;
+  box-shadow: rgba(0, 0, 0, 0.3) 0 -1px 0 0;
+}
+
+#list #clear-tasks:active {
+  position: relative;
+  top: 1px;
+}
+
+#list .count {
+  display:block;
+  
+  &.left { float:left; }
+  &.done { float:right; }
+  span.countVal {
+    font-weight:bold;
+  }
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vidur's Bucket List</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+	<%= yield %>
+
+	<div class="lock-icon">
+		<% if current_user %>
+			<a href="/logout"><%= image_tag("unlock.png") %></a>
+		<% else %>
+			<a id="login-link" data-toggle="modal" href="#login-form"><%= image_tag("lock.png") %></a>
+		<% end %>
+	</div>
+
+	<div class="modal" id="login-form">
+		<%= form_tag sessions_path do %>
+		<div class="form-row">
+			<%= text_field_tag :username, params[:username], id:"username" %>
+		</div>
+		<div class="form-row">
+			<%= password_field_tag :password, params[:password] %>
+		</div>
+		<div class="form-row">
+			<%= submit_tag "Log In", class:"btn" %>
+		</div>
+		<% end %>
+	</div>
+</body>
+</html>

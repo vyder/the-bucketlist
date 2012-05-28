@@ -1,0 +1,36 @@
+<div id="views">
+  <div id="list">
+    <h1>The Bucket List</h1>
+
+		<% if current_user %>
+			<%= form_tag "/tasks", method: "post", remote:"true", id:"add_new_task" do %>
+	      <input name="task[name]" type="text" placeholder="What needs to be done?">
+			<% end %>
+		<% end %>
+
+    <div class="tasks">
+			<% for task in @tasks %>
+				<% if task.done %>
+			  <div class="task done">
+				<% else %>
+			  <div class="task">
+					<% if current_user %>
+		      <input id="<%= task.id %>" class="marked_done" type="checkbox" value="true">
+					<% end %>
+				<% end %>
+		      <span class="task_name"><%= task.name %></span>
+					<% if current_user %>
+						<a class="destroy" href="<%= task_path(task) %>" data-method="delete" data-remote="true"><%= image_tag("destroy.png") %></a>
+					<% end %>
+		
+			  </div> <!-- End of Task -->
+			<% end %>
+		</div>
+
+    <footer>
+      <!-- <a class="clear">Clear completed</a> -->
+      <div class="count left"><span id="count_left" class="countVal"><%= @left_count %></span> left</div>
+      <div class="count done">done <span id="count_done" class="countVal"><%= @done_count %></span></div>
+    </footer>
+  </div>
+</div>

@@ -1,0 +1,1 @@
+<div class='task'>  <input id='<%= @task.id %>' class='marked_done' type='checkbox' value='true'>  <span><%= @task.name %></span>	<a class='destroy' href='<%= task_path(@task) %>' data-method='delete' data-remote='true'><%= image_tag('destroy.png') %></a></div>
